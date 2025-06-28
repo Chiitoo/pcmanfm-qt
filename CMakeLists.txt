@@ -22,6 +22,11 @@ set(SHELLQT_MINIMUM_VERSION "6.0.0")
 list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
 
 find_package(Qt6DBus ${QT_MINIMUM_VERSION} REQUIRED)
+
+if (Qt6Core_VERSION VERSION_GREATER_EQUAL "6.10.0")
+    find_package(Qt6GuiPrivate REQUIRED)
+endif()
+
 find_package(Qt6LinguistTools ${QT_MINIMUM_VERSION} REQUIRED)
 find_package(Qt6Widgets ${QT_MINIMUM_VERSION} REQUIRED)
 find_package(fm-qt6 ${LIBFMQT_MINIMUM_VERSION} REQUIRED)
